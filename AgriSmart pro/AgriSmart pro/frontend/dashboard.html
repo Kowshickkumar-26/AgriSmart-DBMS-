@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AgriSmart Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dash-body">
+  <header class="topbar">
+    <div class="topbar-left">
+      <img class="logo-sm" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=80&auto=format&fit=crop" alt="logo" />
+      <h1>AgriSmart</h1>
+      <span class="tag">Futuristic AgroTech</span>
+    </div>
+    <div class="topbar-right">
+      <div id="userBadge" class="user-badge">—</div>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <main class="dash-grid">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li data-table="farms" class="active">Farms</li>
+          <li data-table="fields">Fields</li>
+          <li data-table="crops">Crops</li>
+          <li data-table="sensors">Sensors</li>
+          <li data-table="harvests">Harvests</li>
+        </ul>
+      </nav>
+      <div class="sidebar-note">
+        <h4>Quick Actions</h4>
+        <button id="newBtn" class="btn">New Item</button>
+      </div>
+    </aside>
+
+    <section class="content">
+      <section class="hero">
+        <div class="hero-left">
+          <h2 id="sectionTitle">Farms</h2>
+          <p id="sectionSubtitle">Manage records, add new items, and quickly edit or delete.</p>
+        </div>
+        <div class="hero-right">
+          <div class="search-container">
+            <input id="searchInput" placeholder="Search or click a suggestion..." autocomplete="off" />
+            <div id="suggestions" class="suggestions"></div>
+            <button id="searchBtn" class="btn">Search</button>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-value" id="totalCount">0</div>
+              <div class="stat-label">Total</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="activeCount">0</div>
+              <div class="stat-label">Recent</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <form id="addForm" class="add-form">
+          <input id="nameInput" placeholder="Name" />
+          <input id="detailsInput" placeholder="Details (location, stage, info)" />
+          <input type="hidden" id="editingId" />
+          <button id="addBtn" class="btn primary">Add / Update</button>
+        </form>
+      </section>
+
+      <section id="cardsArea" class="cards-area">
+        <!-- cards injected here -->
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
